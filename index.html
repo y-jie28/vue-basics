@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <!-- Directive are attributes that changes behavior of the element it's applied to -->
+  <!-- All directives start with 'v-' followed by the name -->
+
+  <!-- v-cloak: wait for Vue to load and then remove itself, we can use this to hide elements -->
+  <div id="app" v-cloak>
+    <p>{{ fullName() }}</p>
+    <p><a v-bind:href="url" target="_blank">Google</a></p> 
+    <!-- v-bind:attribute can be shortened to :attribute -->
+    <p v-html="raw_url"></p>
+    <!-- vue by default does not output raw html, it will be output raw text -->
+    <!-- directive v-html allows raw html to be output, usually there are security issues for outputing raw html -->
+    <!-- can lead to cross site scripting, fe can't really do anything to prevent it; be can -->
+    <p>{{ age }}</p>
+    <hr />
+
+    <!-- The value that gets evaluated from the expression is what will be used as the value for the input field -->
+    <!-- Reactivity is when any changes to the data is immediately reflected on the page -->
+    <!-- Vue's Two-way data binding: data in document is updated, data in js also updated. vice versa -->
+    <label>First Name</label>
+    <input type="text" v-model="firstName"/>
+    <label>Last Name</label>
+    <input type="text" v-model="lastName" />
+
+    <!-- Keyboard Events -->
+    <label>Middle Name</label>
+    <input type="text" @keyup.enter="updateMiddleName">
+
+    <!-- this is technically same thing as above. v-model is like syntactic sugar for this -->
+    <!-- then why would you ever want to do this long way? if you want more control over the code -->
+    <label>Last Name2</label>
+    <input type="text" :value="lastName" @input="updateLastName" />
+
+    <label>Last Name3</label>
+    <input type="text" :value="lastName" @input.prevent="updateLastName3('Last name called', $event)" />
+
+    <!-- v-on listens for an event -->
+    <!-- shorthand: @event  -->
+    <button type="button" @click="increment">Increment</button>
+    <button type="button" v-on:click="age--">Decrement</button>
+
+    <!-- System Modifier Keys -->
+    <!-- will only trigger mouse event while the key is being hold -->
+    <button type="button" @click.shift="age--">Decrement2</button>
+
+  </div>
+
+  <!-- <div id="app2">
+    {{ firstName }}
+    {{ lastName }}
+  </div> -->
+
+  
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

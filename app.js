@@ -11,15 +11,11 @@ const vm = Vue.createApp({
         }
     },
     methods: {
-        // 'this' keyword will not work if used arrow functions
-        fullName() {
-            return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}` 
-        },
         increment() {
             this.age++;
         },
         updateLastName(msg, event) {
-            event.preventDefault(); 
+            event.preventDefault();
             console.log(msg);
             this.lastName = event.target.value;
         },
@@ -31,6 +27,30 @@ const vm = Vue.createApp({
         },
         updateMiddleName(event) {
             this.middleName = event.target.value;
+        },
+    },
+    // are computed properties data or methods? it is a combination of both
+    // computed properties are cached based on their reactive dependencies
+    // no data can be passed
+    // helps with performance
+    // can never / shoud not be asynchronous, expects a value to be returned
+    computed: {
+        // 'this' keyword will not work if used arrow functions
+        fullName() {
+            return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
+        }
+    },
+    // not commonly used, only a few cases where it would come handy
+    // developers use watchers to perform additional actions when a value is changed
+    // esp true when want to perform asynchronous tasks
+    watch: {
+        age(newVal, oldVal) {
+            // not obligated to return
+
+            // revert age back to 20 after 3 seconds
+            setTimeout(() => {
+                this.age = 20;
+            }, 3000);
         }
     }
 }).mount('#app')

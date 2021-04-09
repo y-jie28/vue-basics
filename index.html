@@ -12,14 +12,15 @@
 
   <!-- v-cloak: wait for Vue to load and then remove itself, we can use this to hide elements -->
   <div id="app" v-cloak>
-    <p>{{ fullName() }}</p>
+    <!-- Vue treats computed properties as data (even if it is a function) -->
+    <p>{{ fullName }}</p>
     <p><a v-bind:href="url" target="_blank">Google</a></p> 
     <!-- v-bind:attribute can be shortened to :attribute -->
     <p v-html="raw_url"></p>
     <!-- vue by default does not output raw html, it will be output raw text -->
     <!-- directive v-html allows raw html to be output, usually there are security issues for outputing raw html -->
     <!-- can lead to cross site scripting, fe can't really do anything to prevent it; be can -->
-    <p>{{ age }}</p>
+    <p>{{ typeof age }}</p>
     <hr />
 
     <!-- The value that gets evaluated from the expression is what will be used as the value for the input field -->
@@ -41,6 +42,13 @@
 
     <label>Last Name3</label>
     <input type="text" :value="lastName" @input.prevent="updateLastName3('Last name called', $event)" />
+
+    <!-- three v-model modifiers: lazy, trim and number -->
+    <!-- lazy only updates when move away from input, and trim is equivalent to .trim() removes excess white space -->
+    <!-- input element always returns a string, default behavior -->
+    <!-- the number modifier will convert it to a number -->
+    <label>Age</label>
+    <input type="number" v-model.number="age" />
 
     <!-- v-on listens for an event -->
     <!-- shorthand: @event  -->

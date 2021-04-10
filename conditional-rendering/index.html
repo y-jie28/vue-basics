@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <!-- v-if: value must be the condition
+    add the element if true, _remove_(not hide) if false -->
+    <p v-if="mode == 1">Showing v-if directive content</p>
+
+    <!-- if want to render 2 elements after a conditional is true, 
+    can wrap it in a div and apply the condition to a div; 
+    however, it changes the structure of the document; 
+    there might be some styling problem, esp harder to manage in large apps -->
+
+    <!-- What we can do is to replace the 'div' tag with template;
+    not a valid html element, but valid vue element -->
+    <template v-else-if="mode == 2.5">
+      <h4>Simply replace the div tag with template to keep same structure</h4>
+      <p>Bonus Content</p>
+    </template>
+
+    <!-- v-if-else can only be used on the element after v-if and has to be same level, 
+    if there's another element in between, the application will throw an error -->
+    <h3 v-else-if="mode == 2">v-else-if</h3>
+    <!-- no condition required as it will not check -->
+    <p v-else>v-else</p>
+
+
+    <!-- an alternative to conditional rendering, expets a condition -->
+    <!-- works like v-if but with one difference: does not REMOVE the element from the document, 
+    instead, it only hides the element (sets display to 'none') -->
+
+    <!-- Does not work with v-else and <template></template> tag -->
+    <i v-show="mode == 1">v-show</i>
+
+    <select v-model="mode">
+      <option value="1">v-if</option>
+      <option value="2">v-else-if</option>
+      <option value="2.5">v-else-if-2.5</option>
+      <option value="3">v-else</option>
+    </select>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

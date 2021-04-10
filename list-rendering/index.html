@@ -1,0 +1,33 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>VueJS Course</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <!-- v-for will allow us to loop through an array -->
+        <!-- expression: alias to refer an item in the array -->
+        <!-- if want to grab the index as well, wrap the alias in () and provide another alias to refer to the index -->
+        <li v-for="(bird, index) in birds" :class="bird" :key="bird">
+          {{ bird }} - {{ index }}
+        </li>
+
+        <hr />
+
+        <!-- v-for can allow us to loop through object as well -->
+        <li v-for="person in people">
+          <div v-for="(value, key, index) in person">
+            <!-- to loop through all properties -->
+            {{ key }}: {{ value }} - Index: {{ index }}</div>
+          <!-- <div>{{ person.name }}</div> -->
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

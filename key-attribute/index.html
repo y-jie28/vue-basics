@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app">
+    <button type="button" class="move" @click="move">
+      Move to Bottom
+    </button>
+   
+    <!-- key attribute tells Vue the data belongs to a certain element;
+
+      2 ways of moving data:
+        1.) w/o key attribute, Vue moves the data around but not the element itself - patching
+        2.) w/ key attribute, forcing elements to move as well. Somewhat costly, but don't have to worry about strange behavior. 
+      
+        Should always use a key, unless the list is super simple.
+    -->
+    <!-- key: should be an unique property -->
+    <div class="card" v-for="person in people" :key="person.name">
+      <h3>{{ person.name }}</h3>
+      <p>{{ person.message }}</p>
+      <input type="text" />
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -36,12 +36,12 @@ watch: { val(newVal, oldVal) { action } }
 
 
 ## Binding Attributes
-Directive to Use: v-bind
+Directive to Use: __v-bind__
 v-bind directive short-hand: Adding colon in front of the attribute; e.g. v-bind:href -> :href
 
 
 ## Listening to Events
-Directive to Use: v-on:name_of_event
+Directive to Use: __v-on__
 v-on directive short-hand: Adding @ in front of the event name (usually not valid attribute); e.g. v-on:click -> @click
 
 

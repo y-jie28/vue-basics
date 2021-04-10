@@ -17,7 +17,7 @@
  - Binding Classes
  - Binding Styles
  - Conditional Rendering / The v-show Directive
-
+ - List Rendering
 
 ## Working with Data / Methods / Computed Properties / Watchers
 Four properties covered: 1) Data, 2) Methods, 3) Computed Properties and 4) Watchers
@@ -88,3 +88,23 @@ Some notes:
 - Main Advantage: Cheap on Load because it's ___lazy___. Saves resource on the client's machine because it will never add an element to the document if condition is not met. 
 - Expensive on __Toggle__. Because adding and removing an element at a same spot is not easy. 
 - ___Should be used if elements will rarely appear/disappear on the page___.
+
+## List Rendering
+The __v-for__ Directive allows us to loop through lists such as arrays and objects. 
+
+Set an alias to loop through the list. Usually the naming is the singular version of the array name. e.g. fruit in fruits, item in items, shoe in shoes, etc. 
+Index is optional. No need to include if not needed. 
+
+```
+<li v-for="(element, index) in elements">{{ element }}</li>
+```
+
+For objects, there are more alias that can be used to access object properties. 
+
+```
+<li v-for="element in elements">
+ <div v-for="(value, key, index) in elements">
+  {{ key }}: {{ value }}
+ </div>
+</li>
+```

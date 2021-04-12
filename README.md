@@ -115,7 +115,7 @@ Directives are special attributes that changes the _behavior_ of the element it'
 - Argument: event
 - Modifiers: 
     - .prevent: call __event.preventDefault()__.
-    - .stop: call __event.stopPropagation()__.
+    - .stop: call __event.stopPropagation()__. <br />
     For more modifiers, see [Vue.js Documentation](https://vuejs.org/v2/api/#v-on).
 - Usage: Attaches an event listener to the element. When used on a normal element, it listens to __native DOM events__ only. When used on a custom element component, it listens __custom events__ emitted on that child componenet. 
 

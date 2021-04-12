@@ -1,5 +1,6 @@
  # Vue Fundamentals
  
+ - Why Vue.js? / Angular vs React vs Vue
  - Working with Data / Methods / Computed Properties / Watchers
  - Directives
     - v-cloak
@@ -19,7 +20,7 @@ All three does one main thing: __UI__ and __DOM Manipulation__ to make Apps inte
 
 - Angular is a mature framework, good choice for a massive team. 
 - React might be great for Startups, with a lot of flexibility. 
-- Vue mixes best of Angular and React. 
+- __Vue mixes best of Angular and React__. 
 
 #### Angular
 - Developed by Google 2010, TypeScript based JS __Framework__.

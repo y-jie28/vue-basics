@@ -1,5 +1,6 @@
  # Vue Fundamentals
  
+ - What is Vue.js? 
  - Why Vue.js? / Angular vs React vs Vue
  - Working with Data / Methods / Computed Properties / Watchers
  - Directives
@@ -12,6 +13,11 @@
  - Binding Classes / Binding Styles
  - Conditional Rendering / The v-show and v-if Directive
  - List Rendering / The v-for Directive
+
+## What is Vue.js?
+Vue is a __progressive framework__ for building user interfaces. The core library is focused on the view layer only. 
+
+_From [Vue Documentation](https://v3.vuejs.org/guide/introduction.html#what-is-vue-js)_. 
 
 ## Why Vue.js? / Angular vs React vs Vue
 All three does one main thing: __UI__ and __DOM Manipulation__ to make Apps interactive. Also all revolved the idea of __Componenets__.  
@@ -117,7 +123,7 @@ Directives are special attributes that changes the _behavior_ of the element it'
     - .prevent: call __event.preventDefault()__.
     - .stop: call __event.stopPropagation()__.
     For more modifiers, see [Vue.js Documentation](https://vuejs.org/v2/api/#v-on).
-- Usage: Attaches an event listener to the element. When used on a normal element, it listens to __native DOM events__ only. When used on a custom element component, it listens __custom events__ emitted on that child componenet. 
+- Usage: Adds an event listener to the element. When used on a normal element, it listens to __native DOM events__ only. When used on a custom element component, it listens __custom events__ emitted on that child componenet. 
 
 ```
 <!-- inline statement -->
